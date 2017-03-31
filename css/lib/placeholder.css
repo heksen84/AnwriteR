@@ -1,0 +1,19 @@
+:-moz-placeholder 
+{ 
+   /* Firefox 18- */
+   text-align: center;  
+   color: grey;
+}
+
+::-moz-placeholder 
+{  
+   /* Firefox 19+ */
+   text-align: center;  
+   color: grey;
+}
+
+:-ms-input-placeholder 
+{  
+   text-align: center; 
+   color: grey;
+}

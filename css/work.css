@@ -1,0 +1,132 @@
+textarea
+{
+	text-align:left;
+}
+#button_add_record
+{
+ margin:10px;
+ font-size:25px;
+}
+#main_row
+{
+ margin-top:20px;
+}
+#col_recs_array
+{
+	margin-top:10px;
+	word-wrap: break-word;
+}
+#period_title
+{
+	margin-top:20px;
+	margin-bottom:12px;
+}
+#text
+{
+ width:100%;
+ margin:auto;
+ height:100px;
+}
+#user_name
+{
+ font-size:18px;
+}
+#zametka_ot_row
+{
+ margin-bottom:10px;
+}
+#search_col
+{
+	margin-top:20px;		
+}
+#search_col
+{
+	margin-top:30px;
+}
+#search_results_table
+{
+	border-collapse: collapse;
+	border: 1px solid rgb(50,50,100);
+}
+#search_results_table td,th
+{
+ text-align: center; 
+ border: 1px solid rgb(50,50,100);
+ max-width: 55px;
+ overflow: hidden;
+ text-overflow: ellipsis;
+ white-space: nowrap;
+ font-size:17px;
+}
+#search_results_table th
+{
+	background:rgb(150,120,150);
+	color:white;;
+}
+#search_results_table tbody tr:hover
+{
+ background:rgb(100,100,150);
+ text-decoration:underline;
+ cursor:pointer;
+}
+#col_save_button
+{
+ margin-top:10px;
+}
+#button_search
+{
+	font-size:18px;
+}
+.short_line
+{
+ margin-top:0px;
+ margin-bottom:30px;
+ width:300px;
+}
+.col-md-12
+{
+ margin:1px;
+}
+.date_input
+{
+	width:150px;
+	border-radius:5px;	
+	border: 1px solid rgb(100,100,150);		
+	padding:3px;
+	color:black;
+}
+.rec_item
+{
+	cursor:default;
+	margin:8px;
+}
+.rec_item:hover
+{
+	text-decoration:underline;	
+}
+nav .nav-link 
+{
+ font-size:18px;	
+}
+.nav-link 
+{
+ color: white; 
+ font-size:20px;
+}
+.nav-link:hover 
+{
+ color: white;
+ text-decoration: underline;
+}
+.nav-link:focus
+{
+ color: white;
+ outline: none;
+}
+@media (max-width: 576px) {
+#zametka_ot
+{	
+ text-align:center;
+}
+	
+}

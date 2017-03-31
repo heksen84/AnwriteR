@@ -1,0 +1,49 @@
+body
+{
+	color:white;
+	background: rgb(70,70,120);
+	text-align:center;
+	margin:0;
+	padding:0;
+}
+input
+{
+	text-align:center;
+}
+.full_window
+{
+	position:fixed;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;	
+	color:white;
+	background: rgb(70,70,120);
+	text-align:center;
+	margin:0;
+	padding:0;
+	display:none;
+}
+.modal
+{
+ color:grey;
+ width:350px;
+ margin:70px auto;
+}
+.modal-header
+{
+ background:rgb(100,100,150);
+ color:white;
+}
+.modal-header .close 
+{
+ color:white;
+}
+.modal-header .close:hover 
+{
+ opacity: 1;
+}
+.modal-title
+{
+ font-size:22px; 
+}
