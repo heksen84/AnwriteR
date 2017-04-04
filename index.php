@@ -12,8 +12,7 @@
 <meta name = "keywords"    	content = "anwriter, анвритер, записная книжка, записи, заметки"/>
 <meta name = "robots" 	   	content = "index, follow"/>
 <!-- стили -->
-<link href = "css/lib/bootstrap.min.css"	     	rel = "stylesheet"/>
-<link href = "css/lib/jquery.contextMenu.min.css" 	rel = "stylesheet"/>   
+<link href = "css/lib/bootstrap.min.css"	     	rel = "stylesheet"/>   
 <link href = "css/lib/sweet-alert.css"	     		rel = "stylesheet"/>
 <link href = "css/lib/scroll.css"	             	rel = "stylesheet"/>
 <link href = "css/index.css?<?php echo time()?>"  	rel = "stylesheet"/>
@@ -22,7 +21,9 @@
 <script src = "js/lib/bootstrap.min.js"></script>
 <script src = "js/lib/sweet-alert.min.js"></script>      
 <script src = "js/lib/jquery.msg.js"></script>      
-<script src = "js/lib/jquery.contextMenu.min.js"></script>
-<script src = "js/menu.js?<?php echo time()?>"></script>
 <script src = "js/index.js?<?php echo time()?>"></script>
+<?php 
+	if (isset($_GET["user"]) &&  isset($_GET["text"])) 
+		echo "<script>localStorage.setItem('user','".$_GET["user"]."');localStorage.setItem('text','".$_GET["text"]."');</script>"; 
+?>
 

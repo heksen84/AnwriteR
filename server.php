@@ -10,15 +10,48 @@ include "php/class.mysqli.php";
 
 session_start();
 
+// ---------------------
+// конвертер
+// ---------------------
+function translit($str) 
+{
+    $rus = array(' ', 'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ъ', 'Ы', 'Ь', 'Э', 'Ю', 'Я', 'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я');
+    $lat = array('-', 'A', 'B', 'V', 'G', 'D', 'E', 'E', 'Gh', 'Z', 'I', 'Y', 'K', 'L', 'M', 'N', 'O', 'P', 'R', 'S', 'T', 'U', 'F', 'H', 'C', 'Ch', 'Sh', 'Sch', 'Y', 'Y', 'Y', 'E', 'Yu', 'Ya', 'a', 'b', 'v', 'g', 'd', 'e', 'e', 'gh', 'z', 'i', 'y', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'f', 'h', 'c', 'ch', 'sh', 'sch', 'y', 'y', 'y', 'e', 'yu', 'ya');
+    return str_replace($rus, $lat, $str);
+}
+
+// -------------------------------------------  
+// генерация стаической страницы (SEO)
+// -------------------------------------------
+function GenerateHtmlPage($text,$id)
+{			
+	$fp = fopen("pages/".$id.'.html', 'w+');	
+	fwrite($fp, "<!DOCTYPE html>");
+	fwrite($fp, "<html lang='ru'>");
+	fwrite($fp, "<head>");
+	fwrite($fp, "<meta charset='utf-8'>");
+	fwrite($fp, "<meta name='viewport' content='width=device-width'/>");
+	fwrite($fp, "<meta name='description' content='".$text."'/>");
+	fwrite($fp, "<meta name='keywords' content='".$text."'/>");
+	fwrite($fp, "<meta name='robots' content='index, follow'/>");
+	fwrite($fp, "<title>".$text."</title>");
+	fwrite($fp, "</head>");
+	fwrite($fp, "<script>window.location='http://anwriter/?user=".$_SESSION["user_login"]."&text=".$text."'</script>");
+	fwrite($fp, "<body>");
+	fwrite($fp, $text);
+	fwrite($fp, "</body>");		
+	fclose($fp);	
+}
+
+
 /* ------ [ РОУТИНГ ] ------ */
 if (isset($_GET["func"])) 
-{	    	
-	
+{	    		
 	$db = DataBase::getDB();
     
     switch ($_GET["func"]) 
 	{
-	
+		
 	// ------------------------
     // регистрация
 	// ------------------------
@@ -146,22 +179,25 @@ if (isset($_GET["func"]))
 	// ------------------------
 	case "SRV_AddRecord": 
 	{		        
-		if (!isset($_GET['text']) || !isset($_GET['tag_id']) || !isset($_GET['tag_name']))
+		if (!isset($_GET['text']) || !isset($_GET['tag_id']) || !isset($_GET['tag_name']) || !isset($_GET['show_mode']))
 			msg::error("нет данных");
-        					
+	
 			$text   	= $_GET['text'];   	
 			$rec_items 	= $_GET['rec_items']; 				
 			$tag_id 	= $_GET['tag_id']; 	
-			$tag_name 	= $_GET['tag_name'];					
+			$tag_name 	= $_GET['tag_name'];
+			$show_mode	= $_GET['show_mode'];
 												
-			$records = $db->query("INSERT INTO `records` VALUES (NULL,'".$_SESSION["user_id"]."','".$tag_id."','".$text."',NOW())");						
-
-			if (isset($rec_items))
-			{ 				
+			$records = $db->query("INSERT INTO `records` VALUES (NULL,'".$_SESSION["user_id"]."','".$tag_id."','".$text."',NOW(),'".$show_mode."')");									
+			
+			if (isset($rec_items)){ 				
 				foreach ($rec_items as $key => $value){
 					$views	= $db->query("INSERT INTO `views` VALUES (NULL,'".$_SESSION["user_id"]."','".$records."','".$key."', NOW())");			
 				}
 			}
+			
+			if ($show_mode == 0) 
+				GenerateHtmlPage($text, $records);
 			
 			msg::success($records);
 			break;

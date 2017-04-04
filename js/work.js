@@ -187,14 +187,15 @@ function InitWork(user_name)
 					case "success": 
 					{																									
 						$("#search_results_table thead, tbody").empty();
-						$("#search_results_table thead").append("<tr><th style='width:65%'>текст</th><th style='width:30%'>дата</th><th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th></tr>");						
+						$("#search_results_table thead").append("<tr><th style='width:65%'>текст</th><th style='width:30%'>дата</th><th></th></tr>");						
 						
-						var color;
+						/* перебор */
 						$.each(obj.string, function(i, item) 
 						{																		
-							$("#search_results_table tbody").append("<tr data-id='"+item.id+"' class='root_item'><td class='item_text' style='color:"+color+"'>"+item.text+"</td><td>"+item.date+"</td><td class='plus_add_item'>+</td></tr>")
+							$("#search_results_table tbody").append("<tr data-id='"+item.id+"' class='root_item'><td class='item_text'>"+item.text+"</td><td>"+item.date+"</td><td class='plus_add_item'>+</td></tr>")
 							GetSubLevel(item.id);												
 						});
+																		
 																								
 						/* плюсик */
 						$(".plus_add_item").click(function() 
@@ -285,6 +286,7 @@ function InitWork(user_name)
 					"func": "SRV_AddRecord",					
 					"text": $("#text").val(),														
 					"rec_items": rec_items,
+					"show_mode": $("#record_show_mode").val(),
 					"tag_id": 0,														
 					"tag_name":	""														
 				},

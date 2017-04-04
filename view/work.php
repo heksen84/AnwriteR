@@ -59,14 +59,20 @@
 <div class="container" id="work_container">
 <div class="row" id="main_row">		
 	<div class="col-md-12">
-	<textarea class="form-control" id="text" maxlength="128" placeholder="мысль..."></textarea>
+	<textarea class="form-control" id="text" maxlength="128" placeholder="запись..."></textarea>
 	</div>
 	<div class="col-md-12">
-	<input type="text" class="form-control" placeholder="связь" maxlength="75" id="link">
-	</div>		
-	
+	<input type="text" class="form-control" placeholder="связь" maxlength="75" id="link">	
+	</div>			
+	<div class="col-md-12">
+	<select class="form-control" id="record_show_mode">
+	<option value="0">видят все</option>
+	<option value="1">вижу только я</option>	
+	</select>
+	</div>
 	<div class="col-md-12" id="col_recs_array"></div>	
-	<div class="col-md-12" id="col_save_button"><button class="btn btn-primary" id="button_add_record">сохранить</button></div>
+	<div class="col-md-12" id="col_save_button"><button class="btn btn-primary" id="button_add_record">сохранить</button>	
+	</div>
 	<div class="col-md-12" id="search_col">	
 	<h4><ins>поиск</ins></h4>		
 	<input type="text" class="form-control" style="width:300px;margin:auto" placeholder="введите текст..." id="search_string"></input>
