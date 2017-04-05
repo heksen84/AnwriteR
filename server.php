@@ -189,18 +189,18 @@ if (isset($_GET["func"]))
 			$tag_name 	= $_GET['tag_name'];
 			$show_mode	= $_GET['show_mode'];
 												
-			$records = $db->query("INSERT INTO `records` VALUES (NULL,'".$_SESSION["user_id"]."','".$tag_id."','".$text."',NOW(),'".$show_mode."')");									
+			$record_id = $db->query("INSERT INTO `records` VALUES (NULL,'".$_SESSION["user_id"]."','".$tag_id."','".$text."',NOW(),'".$show_mode."')");									
 			
 			if (isset($rec_items)){ 				
 				foreach ($rec_items as $key => $value){
-					$views	= $db->query("INSERT INTO `views` VALUES (NULL,'".$_SESSION["user_id"]."','".$records."','".$key."', NOW())");			
+					$views	= $db->query("INSERT INTO `views` VALUES (NULL,'".$_SESSION["user_id"]."','".$record_id."','".$key."', NOW())");			
 				}
 			}
 			
 			if ($show_mode == 0) 
-				util::GenerateHtmlPage($text, $records);
+				util::GenerateHtmlPage($record_id, $text);
 			
-			msg::success($records);
+			msg::success($record_id);
 			break;
     }
 	
