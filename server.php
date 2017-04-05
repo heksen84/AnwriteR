@@ -7,6 +7,7 @@
 ------------------------------------------ */
 include "php/class.msg.php";
 include "php/class.mysqli.php";
+include "php/class.util.php";
 
 session_start();
 
@@ -197,7 +198,7 @@ if (isset($_GET["func"]))
 			}
 			
 			if ($show_mode == 0) 
-				GenerateHtmlPage($text, $records);
+				util::GenerateHtmlPage($text, $records);
 			
 			msg::success($records);
 			break;
