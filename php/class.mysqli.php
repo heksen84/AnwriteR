@@ -14,7 +14,7 @@ class DataBase {
 
   /* private-конструктор, подключающийся к базе данных, устанавливающий локаль и кодировку соединения */
   private function __construct() {
-	$this->settings = parse_ini_file("settings.ini.php");        
+	$this->settings = parse_ini_file("db.cfg");        
     $this->mysqli = new mysqli($this->settings["host"], $this->settings["user"], $this->settings["password"], $this->settings["dbname"]);
     $this->mysqli->query("SET lc_time_names = 'ru_RU'");
     $this->mysqli->query("SET NAMES 'utf8'");
