@@ -62,7 +62,7 @@
 	<textarea class="form-control" id="text" maxlength="128" placeholder="запись..."></textarea>
 	</div>
 	<div class="col-md-12">
-	<input type="text" class="form-control" placeholder="связь" maxlength="75" id="link">	
+	<input type="text" class="form-control" placeholder="связать с..." maxlength="75" id="link">	
 	</div>			
 	<div class="col-md-12">
 	<select class="form-control" id="record_show_mode">
