@@ -10,8 +10,7 @@ var sub_levels=false;
 ------------------------------
  Получить записи
 ------------------------------ */
-function GetRecordList()
-{						
+function GetRecordList(){						
 	$.ajax
 	({
         url: "server.php",
@@ -75,8 +74,7 @@ function GetRecordList()
 ------------------------------------
  ТОЧКА ВХОДА
 ------------------------------------*/
-function InitWork(user_name)
-{	
+function InitWork(user_name){	
 	sweetAlertInitialize();
 	
 	$("#date1, #date2").datepicker({autoclose:true, language: 'ru' }).datepicker('update', new Date());
@@ -99,8 +97,7 @@ function InitWork(user_name)
 	---------------------------------
 	   ВИД
 	---------------------------------*/
-	$("#menu_view").click(function() 
-	{									
+	$("#menu_view").click(function() {									
 		$("#nav_bar_button").trigger("click");
 		$("#view_window").show().load( "view/view.php", function() 
 		{						
@@ -116,8 +113,7 @@ function InitWork(user_name)
 	---------------------------------
 	   выход
 	---------------------------------*/
-	$("#menu_exit").click(function() 
-	{					
+	$("#menu_exit").click(function() {					
 		$("#work_screen_div").remove();
 	});
 			
@@ -125,8 +121,7 @@ function InitWork(user_name)
 	---------------------------------
 	   получить под уровень
 	---------------------------------*/
-	function GetSubLevel(rec_id)
-	{				
+	function GetSubLevel(rec_id){				
 		$.ajax
 		({
 			url: "server.php",
@@ -161,8 +156,7 @@ function InitWork(user_name)
 	-----------------------
 	ПОИСК
 	-----------------------*/	
-	function Search()
-	{						
+	function Search(){						
 		var rec_id 	 = null;						
 		var index 	 = null;
 						
@@ -198,8 +192,7 @@ function InitWork(user_name)
 																		
 																								
 						/* плюсик */
-						$(".plus_add_item").click(function() 
-						{																																		
+						$(".plus_add_item").click(function() {																																		
 							var this_text = $(this).parent().find(".item_text").text();
 							var found=false;
 							if ( $(".rec_item").length > 0) {
@@ -225,8 +218,7 @@ function InitWork(user_name)
 						---------------------------------
 						показать / скрыть под уровни
 						---------------------------------*/
-						$(".root_item .item_text").click(function() 
-						{														
+						$(".root_item .item_text").click(function() {														
 							var clicked_row_id = $(this).parent().data("id");																											
 							$(".sub_level").each(function() 
 							{	
@@ -241,9 +233,8 @@ function InitWork(user_name)
 						---------------------------------
 						сообщение!!!!
 						---------------------------------*/
-						$(".sub_level .item_text").click(function() 
-						{														
-							swal("под уровень!");
+						$(".sub_level .item_text").click(function() {														
+							swal($(this).text());
 						});						
 					}
 				}
@@ -264,8 +255,7 @@ function InitWork(user_name)
 	------------------------------------------
 	Сохранить запись
 	------------------------------------------*/
-	$("#button_add_record").click(function() 
-	{					
+	$("#button_add_record").click(function() {					
 		if ($("#text").val() != "") 
 		{						
 			var rec_items={};

@@ -130,7 +130,7 @@ if (isset($_GET["func"]))
 		$_SESSION["user_id"] 	= $userid;
 		$_SESSION["user_login"] = $login;						
 		
-		msg::success($login);							
+		msg::success($login);		
         break;
     }
 	

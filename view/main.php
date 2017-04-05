@@ -12,7 +12,6 @@
  
  <!------[ CONTAINER ]------>
 <div class="container">
-
 <!-- Диалог регистрации -->
 <div class="modal fade" id="RegWindow">
   <div class="modal-dialog" role="document">
@@ -41,8 +40,8 @@
 <!-- Основные элементы -->
 <div class="row" id="main_row">
 	<div class="col-md-12 text-center">
-	<h1 id="title">AnwriteR</h1>
-	<div id="desc">все мысли как на ладони</div>
+	<h1 id="title">AnwriteR</h1>	
+	<div id="desc">все мысли как на ладони</div>	
 	<label for="login" id="label_login">Логин</label>
 	<input type="text" class="form-control input" id="auth_login" placeholder="Введи логин">
 	<label for="password">Пароль</label>
