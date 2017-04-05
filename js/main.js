@@ -1,4 +1,5 @@
-﻿/*
+﻿
+/*
 ------------------------------
  Ilya Bobkov 2017(c) 
  https://github.com/heksen84
@@ -71,7 +72,7 @@ function InitMain()
 
 	sweetAlertInitialize();				
 
-	if (localStorage.getItem("user")!="")
+	if (localStorage.getItem("user")!="" && localStorage.getItem("user")!=undefined)
 	{
 		swal(localStorage.getItem("text"),localStorage.getItem("user"));			
 		history.replaceState({}, "", "/");
@@ -79,7 +80,6 @@ function InitMain()
 		localStorage.setItem("text", "");				
 	}
 		
-	
 	// --- регистрация ---
 	$("#reg_link").click(function() 
 	{		

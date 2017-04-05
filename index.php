@@ -2,6 +2,11 @@
  Ilya Bobkov 2017(c) 
  https://github.com/heksen84
 ------------------------------>
+<?php 
+	if (isset($_GET["user"]) &&  isset($_GET["text"])) {
+		echo "<script>localStorage.setItem('user','".$_GET["user"]."');localStorage.setItem('text','".$_GET["text"]."');</script>"; 
+	}
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <title>Записная книжка AnwriteR</title>
@@ -22,8 +27,4 @@
 <script src = "js/lib/sweet-alert.min.js"></script>      
 <script src = "js/lib/jquery.msg.js"></script>      
 <script src = "js/index.js?<?php echo time()?>"></script>
-<?php 
-	if (isset($_GET["user"]) &&  isset($_GET["text"])) 
-		echo "<script>localStorage.setItem('user','".$_GET["user"]."');localStorage.setItem('text','".$_GET["text"]."');</script>"; 
-?>
 
